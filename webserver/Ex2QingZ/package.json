@@ -1,0 +1,21 @@
+{
+  "name": "ex2qingz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "s2": "node index2.js",
+    "s3": "node index3.js",
+    "w": "node web.js",
+    "extra": "node extra.js"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "expres": "0.0.5",
+    "express": "^4.16.4"
+  }
+}
