@@ -29,7 +29,6 @@ app.get('/', (req, res) =>{
             </body>
         </html>
      `;
-
      res.send(responseInfo)
 });
 
