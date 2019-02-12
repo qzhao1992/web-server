@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.buttonGreen {background-color: #4CAF50; color:white} /* Green */
+.buttonRed {background-color: #f44336; color:white} /* Red */ 
