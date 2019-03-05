@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <% include ../partials/header %>
+
+
+    <title>Store Front</title>
+</head>
+
+<body>
+    
+    <% include ../partials/extraNav %>
+
+    
+    <div class="container">
+        <h1>Store Front Page</h1>
+        <div class="row">
+            <% for (let i = 0; i < bookinfo.db.length; i++) { %>
+            <div class="col-sm col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= bookinfo.db[i].image %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= bookinfo.db[i].title %></h5>
+                        <p class="card-text">
+                            <%= bookinfo.db[i].description %>
+                        </p>
+                        <a href="/add?id=<%=bookinfo.db[i].id%>" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>
