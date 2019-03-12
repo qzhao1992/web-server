@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <% include ./partials/header %>
+
+
+    <title>Shopping Cart </title>
+</head>
+
+<body>
+    <h1>Shopping Cart Content</h1>
+    <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Store Front</a>
+    <% if (sc.items.length == 0) { %>
+    <h3>Empty! Buy more!</h3>
+    <% } else { %>
+
+    <table border=1>
+        <tr>
+            <th>id</th>
+            <th>Qty</th>
+            <th>title</th>
+            <th>description</th>
+        </tr>
+
+        <% for (const item of sc.items) { %>
+        <tr>
+            <td><%= item.id %></td>
+            <td><%= item.qty %></td>
+            <td><%= bookinfo.getBook(item.id).title %></td>
+            <td><%= bookinfo.getBook(item.id).description %></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } %>
+
+    <% include ./partials/scripts %>
+</body>
+
+</html>

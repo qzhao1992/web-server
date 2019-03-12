@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <% include ./partials/header %>
+
+    <title>Store front</title>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Store Front</h1>
+        <a href="/showcart" class="btn btn-primary">Show ShoppingCart</a>
+        <div class="container">
+            <div class="row">
+                <% for (const book of books) { %>
+                <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/public/images/<%=book.image%>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=book.title%></h5>
+                            <p class=" card-text">
+                                <%=book.description%>
+                                <%= utils.dollar.format(book.price)%>
+                            </p>
+                            <form action='/add2cart' method="POST">
+                                <input type="hidden" name="_id" value="<%= book._id%>">
+                                <input type="hidden" name="title" value="<%= book.title%>">
+                                <input type="hidden" name="price" value="<%= book.price%>">
+                                <button type="submit" class="btn btn-primary">Add to ShoppingCart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <%= books[0].title %><br>
+    <%= books[0].price %><br>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <% include ./partials/scripts %>
+</body>
+
+</html>
