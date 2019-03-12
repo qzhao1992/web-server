@@ -34,6 +34,18 @@ app.get('/', (req,res) => {
         })
 })
 
+app.post('/', (req,res) => {
+    console.log('token', req.body.stripeToken)
+    console.log('amount', req.body)
+    app.locals.bookCollection.find({}).toArray()
+        .then(books =>{
+            res.render('storeFront', {books, utils})
+        })
+        .catch(error =>{
+            res.render('errorPage', {source:'/', error});
+        })
+})
+
 
 app.post('/add2cart', (req, res) =>{
     let sc;
@@ -61,3 +73,13 @@ app.get('/showcart', (req, res) =>{
     res.render('showcart', {sc, utils})
 })
 
+app.get('/checkout', (req, res) =>{
+    stripe.customer;
+    let sc;
+    if(!req.session.sc) {
+        sc = new ShoppingCart();
+    }else{
+        sc = ShoppingCart.deserialize(req.session.sc);
+    }
+    res.render('checkout', {sc, utils})
+})

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <% include ../partials/header %>
+
+    <script>
+        function validateForm(){
+            const price = document.forms["insertForm"]["price"].value;
+            if(!parseFloat(price)){
+                alert("Price must be a number");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    <title>Insert</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Insert a new book</h1>
+        <br>
+
+        <form action="/admin/insert" method="POST" id="insertForm" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="text" class="form-control" name="image" id="image" aria-describedby="emailHelp"
+                    placeholder="Choose an image already in the server">
+            </div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp"
+                    placeholder="Enter the title of the book">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" name="price" id="price" aria-describedby="emailHelp"
+                    placeholder="Enter the price of the book">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label><br>
+                <textarea name="description" rows="5" cols="80" id="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <% include ../partials/scripts %>
+</body>
+
+</html>
